@@ -1,12 +1,11 @@
-Ansible Client as a Jump Server (Bastion Host)
-
+# ANSIBLE CLIENT AS A JUMP SERVER (BASTION HOST)
 A Jump Server (sometimes also referred as Bastion Host) is an intermediary server through which access to internal network can be provided.<br> 
 If you think about the current architecture you are working on, ideally, the webservers would be inside a secured network which cannot be reached directly from the Internet. That means, even DevOps engineers cannot SSH into the Web servers directly and can only access it through a Jump Server – it provide better security and reduces attack surface.<br>
 On the diagram below the Virtual Private Network (VPC) is divided into two subnets – Public subnet has public IP addresses and Private subnet is only reachable by private IP addresses. <br>
 For now, we will develop Ansible scripts to simulate the use of a Jump box/Bastion host to access our Web Servers.<br>
 
 # Task 
-- Install and configure Ansible client to act as a Jump Server/Bastion Host.(Master for slaves(WebServers,DB,NFS Server))
+- Install and configure Ansible client to act as a Jump Server/Bastion Host.(control Server for Managed Hosts(WebServers,DB,NFS Server))
 - Create a simple Ansible playbook to automate servers configuration.
 
 ## STEP 1 - INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE <br>
@@ -34,7 +33,7 @@ First part of ‘DevOps’ is ‘Dev’, which means you will require to write s
 
 - After you have successfully installed VSC, configure it to connect to your newly created GitHub repository.<br>
 - Clone down your ansible-config-mgt repo to your Jenkins-Ansible instance<br>
-`git clone <ansible-config-mgt repo link><br>`
+`git clone <ansible-config-mgt repo link>`<br>
 
 STEP 3 - BEGIN ANSIBLE DEVELOPMENT
 - In your ansible-config-mgt GitHub repository, create a new branch that will be used for development of a new feature. <br>
@@ -113,9 +112,9 @@ Now you have a separate branch, you will need to know how to raise a Pull Reques
 
 - Commit your code into GitHub:
 - use git commands to add, commit and push your branch to GitHub.
-`git status`
-`git add <selected files>`
-`git commit -m "commit message"`
+`git status`<br>
+`git add <selected files>`<br>
+`git commit -m "commit message"`<br>
 - Create a Pull request (PR)
 - Wear a hat of another developer for a second, and act as a reviewer.
 - If the reviewer is happy with your new feature development, merge the code to the master branch.

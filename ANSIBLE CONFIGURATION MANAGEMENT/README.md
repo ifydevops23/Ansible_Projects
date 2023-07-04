@@ -59,9 +59,11 @@ Tip: Give your branches descriptive and comprehensive names, for example, if you
 An Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate.<br>
 Since our intention is to execute Linux commands on remote hosts, and ensure that it is the intended configuration on a particular server that occurs. It is important to have a way to organize our hosts in such an Inventory.<br>
 
-- Setup SSH agent and connect VS Code to your Jenkins-Ansible instance:
-`eval `ssh-agent -s` `<br>
-`ssh-add <path-to-private-key>`
+- Setup SSH agent and connect VS Code to your Jenkins-Ansible instance: <br>
+```
+eval `ssh-agent -s`
+```
+`ssh-add <path-to-private-key>` <br>
 Confirm the key has been added with the command below, you should see the name of your key
 `ssh-add -l`<br>
 Now, ssh into your Jenkins-Ansible server using ssh-agent
@@ -200,9 +202,12 @@ ALTERNATIVELY;
 ![6_optional_create_file_and_folder](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/a60f4d5d-8e12-4dfd-9e29-e54e81da310d)
 
 - Confirm changes
-**SERVER-Load Balancer<br>
+**SERVER-Load Balancer <br>
+
 ![11_file_and_folder_created](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/bedb8f3e-d2ba-4e01-9efb-c04946b4462e)
-**SERVER-Web-server<br>
+
+**SERVER-Web-server <br>
+
 ![11_file_and_folder_created_ec2-user](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/d85899f0-3ea6-42bd-a0c5-a082eb1baae7)
 
 

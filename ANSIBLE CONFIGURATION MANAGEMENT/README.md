@@ -210,10 +210,11 @@ ansible-playbook -i inventory/dev.yml playbooks/common.yml
 
 **SERVER-Web-server <br>
 
-![11_file_and_folder_created_ec2-user](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/d85899f0-3ea6-42bd-a0c5-a082eb1baae7)
+![11_file_and_folder_created_ec2-user](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/d85899f0-3ea6-42bd-a0c5-a082eb1baae7) <br>
 
+Congratulations, you managed a fleet of servers with one command!<br>
 
-nwew-------------------
+![0_running_instances](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/9500142f-d892-44aa-b3b9-43662142f025)
 
 
 

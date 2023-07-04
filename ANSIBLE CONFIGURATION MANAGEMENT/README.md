@@ -36,15 +36,15 @@ B. In your GitHub account create a new repository and name it ansible-config-mgt
 ```
 ls /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/
 ```
-** Note: Trigger Jenkins project execution only for /main (master) branch.<br>
-** Note: Allocate an Elastic IP to your Jenkins-Ansible server.**
+**Note: Trigger Jenkins project execution only for /main (master) branch**.<br>
+**Note: Allocate an Elastic IP to your Jenkins-Ansible server.**
 
-STEP 2 – PREPARE YOUR DEVELOPMENT ENVIRONMENT USING VISUAL STUDIO CODE
+STEP 2 – PREPARE YOUR DEVELOPMENT ENVIRONMENT USING VISUAL STUDIO CODE <br>
 First part of ‘DevOps’ is ‘Dev’, which means you will require to write some codes and you shall have proper tools that will make your coding and debugging comfortable.
 
 - After you have successfully installed VSC, configure it to connect to your newly created GitHub repository.<br>
 
-STEP 3 - BEGIN ANSIBLE DEVELOPMENT
+## STEP 3 - BEGIN ANSIBLE DEVELOPMENT<br>
 - In your ansible-config-mgt GitHub repository, create a new branch that will be used for development of a new feature. <br>
 Tip: Give your branches descriptive and comprehensive names, for example, if you use Jira or Trello as a project management tool – include ticket number (e.g. PRJ-145) in the name of your branch and add a topic and a brief description what this branch is about – a bugfix, hotfix, feature, release (e.g. feature/prj-145-lvm) <br>
 - Checkout the newly created feature branch to your local machine and start building your code and directory structure `git checkout -b <branchname>`
@@ -55,7 +55,7 @@ Tip: Give your branches descriptive and comprehensive names, for example, if you
 - Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
 ![3_files_uat_dev_prod_staging_created](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/ed504e46-4dbb-4ad0-84a4-7fc2d3ecad51)
 
-## Step 4 – SET UP AN ANSIBLE INVENTORY
+## Step 4 – SET UP AN ANSIBLE INVENTORY<br>
 An Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate.<br>
 Since our intention is to execute Linux commands on remote hosts, and ensure that it is the intended configuration on a particular server that occurs. It is important to have a way to organize our hosts in such an Inventory.<br>
 
@@ -92,7 +92,7 @@ Update your inventory/dev.yml file with this snippet of code:
 **Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host – for this you can implement the concept of ssh-agent. Now you need to import your key into ssh-agent:**
 
 
-Step 5 – CREATE A COMMON PLAYBOOK
+## STEP 5 – CREATE A COMMON PLAYBOOK <br>
 It is time to start giving Ansible the instructions on what you need to be performed on all servers listed in inventory/dev.<br>
 In common.yml playbook you will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure.<br>
 Update your playbooks/common.yml file with following code:<br>
@@ -131,7 +131,7 @@ Update your playbooks/common.yml file with following code:<br>
 This playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers.<br>
 It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.<br>
 
-Step 6 – Update GIT with the latest code
+## STEP 6 – Update GIT with the latest code <br>
 Now all of your directories and files live on your machine and you need to push changes made locally to GitHub.
 Now you have a separate branch, you will need to know how to raise a Pull Request (PR), get your branch peer reviewed and merged to the master branch.
 
@@ -157,7 +157,7 @@ Once your code changes appear in master branch – Jenkins will do its job and s
 
 ![8_checked_artifacts](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/1a28710f-1878-48c9-adf3-66e21e07fa93)
 
-Step 7 - RUN FIRST ANSIBLE TEST
+Step 7 - RUN FIRST ANSIBLE TEST <br>
 Now, it is time to execute ansible-playbook command and verify if your playbook actually works: <br>
 - Clone down your ansible-config-mgt repo (latest) to your Jenkins-Ansible instance<br>
 `git clone <ansible-config-mgt repo link>`<br>
@@ -184,7 +184,7 @@ ansible-playbook -i inventory/dev.yml playbooks/common.yml
 
 ![5_which_wireshark_ubuntu_user](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/8a54a2cb-7c29-48aa-a551-d71eda2234c5)
 
-** Optional step – Repeat once again **
+**Optional step – Repeat once again**<br>
 
 - Update your ansible playbook with some new Ansible tasks
 - Create a directory and a file inside it.

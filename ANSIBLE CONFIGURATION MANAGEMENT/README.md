@@ -213,5 +213,7 @@ ansible-playbook -i inventory/dev.yml playbooks/common.yml
 ![11_file_and_folder_created_ec2-user](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/d85899f0-3ea6-42bd-a0c5-a082eb1baae7)
 
 
+nwew-------------------
+
 
 

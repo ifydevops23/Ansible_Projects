@@ -90,7 +90,10 @@ Update your inventory/dev.yml file with this snippet of code:
 <Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu'
 ```
 **Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host – for this you can implement the concept of ssh-agent. Now you need to import your key into ssh-agent:**
+- Test if you can ssh into the various server from Jenkins-Ansible Server
+`ssh user-name@<Private-IP>`
 
+![4_ssh_into_list_of_hosts](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/47d3d5c3-9b19-4484-a8b0-1bf8c3cdefef)
 
 ## STEP 5 – CREATE A COMMON PLAYBOOK <br>
 It is time to start giving Ansible the instructions on what you need to be performed on all servers listed in inventory/dev.<br>

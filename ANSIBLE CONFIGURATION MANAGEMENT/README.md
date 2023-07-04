@@ -64,11 +64,11 @@ Since our intention is to execute Linux commands on remote hosts, and ensure tha
 eval `ssh-agent -s`
 ```
 `ssh-add <path-to-private-key>` <br>
-Confirm the key has been added with the command below, you should see the name of your key
+Confirm the key has been added with the command below, you should see the name of your key <br>
 `ssh-add -l`<br>
-Now, ssh into your Jenkins-Ansible server using ssh-agent
+Now, ssh into your Jenkins-Ansible server using ssh-agent <br>
 `ssh -A ubuntu@public-ip`<br>
-Confirm again the key has been added with the command below, after you ssh:
+Confirm again the key has been added with the command below, after you ssh: <br>
 `ssh-add -l`<br>
 
 - Save below inventory structure in the inventory/dev file to start configuring your development servers. Ensure to replace the IP addresses according to your own setup.
@@ -89,7 +89,7 @@ Update your inventory/dev.yml file with this snippet of code:
 [lb]
 <Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu'
 ```
-** Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host – for this you can implement the concept of ssh-agent. Now you need to import your key into ssh-agent:
+**Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host – for this you can implement the concept of ssh-agent. Now you need to import your key into ssh-agent:**
 
 
 Step 5 – CREATE A COMMON PLAYBOOK

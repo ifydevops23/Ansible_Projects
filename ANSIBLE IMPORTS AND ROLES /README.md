@@ -207,6 +207,7 @@ ssh-add <name of key pair>
 ssh -A username@Public-IP-Control-Node
 ssh-add -l
 ```
+
 ![0_ssh_setup](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/3c880ace-219e-4e6c-978f-53640d6add7e)
 
 **Copy your private key into a file in a known location**
@@ -228,6 +229,7 @@ Update your inventory ansible-config-mgt/inventory/uat.yml file with IP addresse
 <Web1-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' ansible_ssh_private_key_file=/home/control-node-username/<name-of-key>
 <Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' ansible_ssh_private_key_file=/home/control-node-username/<name-of-key>
 ```
+
 ![0_edit_uat_file](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/243492af-54ca-49fc-816b-db22aa6db61c)
 
 In /etc/ansible/ansible.cfg file uncomment roles_path string and provide a full path to your roles directory <br>
@@ -316,10 +318,12 @@ Now run the playbook against your uat inventory and see what happens:<br>
 
 You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:<br>
 `http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`<br>
+
 ![9_success_from_web-server_2](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/ad0127c1-b1b8-4e1f-8fa5-2d8c4511066c)
 
 or
 `http://<Web2-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`<br>
+
 ![9_success_from_website](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/01f3149c-b279-49f4-9e02-7a435bc18331)
 
 Your Ansible architecture now looks like this:<br>

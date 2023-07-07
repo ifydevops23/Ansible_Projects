@@ -12,6 +12,7 @@ Let us see how we can improve your Ansible code!
 Before we begin, let us make some changes to our Jenkins job – now every new change in the codes creates a separate directory which is not very convenient when we want to run some commands from one place.
 Besides, it consumes space on Jenkins serves with each subsequent change. Let us enhance it by introducing a new Jenkins project/job – we will require Copy Artifact plugin.<br>
 Go to your Jenkins-Ansible server and create a new directory called ansible-config-artifact – we will store there all artifacts after each build.<br>
+
 `sudo mkdir /home/ubuntu/ansible-config-artifact`<br>
 ![1_mkdir_cop-artifacts](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/dae67fe1-f507-4cf5-9ed9-78c3b9c7048b)
 

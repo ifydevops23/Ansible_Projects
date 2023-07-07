@@ -14,25 +14,39 @@ For now, we will develop Ansible scripts to simulate the use of a Jump box/Basti
 A. Install Ansible <br>
 `sudo apt update`<br>
 `sudo apt install ansible`<br>
+
 ![1_install_ansible](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/252ea927-8f9f-4af8-bac4-3120d33c6cfc)
+
 - Check your Ansible version by running ansible --version
+- 
 ![1_ansible_version](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/1622befd-1314-4c32-9518-c97b911f7874)
 
 
 B. In your GitHub account create a new repository and name it ansible-config-mgt.
 
 ![1_create_repository](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/31c4975c-ba6a-40a1-9c8c-f213f6078c62)
+
 **Configure Jenkins build job to save your repository content every time you change it.**
 - Create a new Freestyle project 'ansible' in Jenkins and point it to your ‘ansible-config-mgt’ repository.
-- ![1_create_freestyle_project](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/58fda944-1a5f-4e59-914d-95f4b0bc0b05)
+
+![1_create_freestyle_project](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/58fda944-1a5f-4e59-914d-95f4b0bc0b05)
+
 - Configure Webhook in GitHub.
+
 ![1_webhook_created](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/4d617009-27ce-4508-909c-13372d4af3b7)
+
 - Set webhook to trigger 'ansible' build.
+
 ![2_add_repository_link](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/ea53e87d-20ee-463b-bfbf-314a300cd9b2)
+
 ![2_add_git_build_triggers](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/49ad87e5-4bce-4cf4-b784-9d43b56940d7)
+
 - Configure a Post-build job to save all (**) files.
+  
 ![2_post_build_action](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/ee4d1e0f-2882-45d9-9d6d-1826c6f379bf)
+
 - Test your setup by making some change in README.MD file in master branch and make sure that builds starts automatically and Jenkins saves the files (build artifacts) in following folder<br>
+
 ```
 ls /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/
 ```
@@ -48,11 +62,14 @@ First part of ‘DevOps’ is ‘Dev’, which means you will require to write s
 - In your ansible-config-mgt GitHub repository, create a new branch that will be used for development of a new feature. <br>
 Tip: Give your branches descriptive and comprehensive names, for example, if you use Jira or Trello as a project management tool – include ticket number (e.g. PRJ-145) in the name of your branch and add a topic and a brief description what this branch is about – a bugfix, hotfix, feature, release (e.g. feature/prj-145-lvm) <br>
 - Checkout the newly created feature branch to your local machine and start building your code and directory structure `git checkout -b <branchname>`
+  
 ![3_github_create_newbranch_from_vscode](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/e9ce85a3-e9e4-4886-9243-a6322700f913)
+
 - Create a directory and name it playbooks – it will be used to store all your playbook files.
--- Within the playbooks folder, create your first playbook, and name it common.yml
+- Within the playbooks folder, create your first playbook, and name it common.yml
 - Create a directory and name it inventory – it will be used to keep your hosts organised.
 - Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
+- 
 ![3_files_uat_dev_prod_staging_created](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/ed504e46-4dbb-4ad0-84a4-7fc2d3ecad51)
 
 ## Step 4 – SET UP AN ANSIBLE INVENTORY<br>
@@ -66,9 +83,15 @@ eval `ssh-agent -s`
 `ssh-add <path-to-private-key>` <br>
 Confirm the key has been added with the command below, you should see the name of your key <br>
 `ssh-add -l`<br>
+
+![0_ssh_setup](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/4a6b4805-8028-4f2d-a132-7175aad59c1c)
+
 Now, ssh into your Jenkins-Ansible server using ssh-agent <br>
+
 `ssh -A ubuntu@public-ip`<br>
+
 Confirm again the key has been added with the command below, after you ssh: <br>
+
 `ssh-add -l`<br>
 
 - Save below inventory structure in the inventory/dev file to start configuring your development servers. Ensure to replace the IP addresses according to your own setup.

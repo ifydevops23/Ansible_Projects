@@ -14,6 +14,7 @@ Besides, it consumes space on Jenkins serves with each subsequent change. Let us
 Go to your Jenkins-Ansible server and create a new directory called ansible-config-artifact – we will store there all artifacts after each build.<br>
 `sudo mkdir /home/ubuntu/ansible-config-artifact`<br>
 ![1_mkdir_cop-artifacts](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/dae67fe1-f507-4cf5-9ed9-78c3b9c7048b)
+
 Change permissions to this directory, so Jenkins could save files there – <br>
 `chmod -R 0777 /home/ubuntu/ansible-config-artifact`<br>
 ![1_change_permission](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/cdf3af59-8b0a-49b6-9395-0fec67268672)

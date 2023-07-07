@@ -18,7 +18,7 @@ A. Install Ansible <br>
 ![1_install_ansible](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/252ea927-8f9f-4af8-bac4-3120d33c6cfc)
 
 - Check your Ansible version by running ansible --version
-- 
+
 ![1_ansible_version](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/1622befd-1314-4c32-9518-c97b911f7874)
 
 

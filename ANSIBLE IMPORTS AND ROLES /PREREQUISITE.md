@@ -30,3 +30,5 @@ Step 1 – Install the Jenkins server <br>
 
 - Retrieve it from your server:
 `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`<br>
+
+- Create a freestyle job named 'ansible' triggered by a webhook on "ansible-config-mgt" repo.

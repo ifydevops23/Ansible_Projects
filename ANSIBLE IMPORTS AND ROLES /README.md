@@ -221,7 +221,15 @@ Note: Locate location of downloaded key pair for example Downloads direcctory, t
 
 `sudo vi <desired-name>.pem`<br>
 
+`sudo chmod <desired-name>.pem`<br>
+
 Paste key, save and note location `pwd`<br>
+
+- On the managed nodes,
+
+Add keys to individual server <br>
+
+`sudo vi <desired-name>.pem`<br>
 
 Update your inventory ansible-config-mgt/inventory/uat.yml file with IP addresses of your 2 UAT Web servers<br>
 ```

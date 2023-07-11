@@ -1,0 +1,9 @@
+[uat-webservers]
+172.31.28.155 ansible_user='ec2-user' ansible_ssh_private_key_file=/home/ubuntu/keyss.pem
+
+172.31.22.131 ansible_user='ec2-user' ansible_ssh_private_key_file=/home/ubuntu/keyss.pem
+
+[lb]
+172.31.28.155 ansible_user='ec2-user' ansible_ssh_private_key_file=/home/ubuntu/keyss.pem
+
+172.31.22.131 ansible_user='ec2-user' ansible_ssh_private_key_file=/home/ubuntu/keyss.pem

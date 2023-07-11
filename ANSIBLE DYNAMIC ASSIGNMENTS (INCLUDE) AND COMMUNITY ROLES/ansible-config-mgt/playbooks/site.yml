@@ -12,7 +12,6 @@
 - name: Webserver assignment
   import_playbook: ../static-assignments/uat-webservers.yml
 
-
 - name: Database configurations
   hosts: db
 - name: Database assignment

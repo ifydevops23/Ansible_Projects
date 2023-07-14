@@ -1,12 +1,13 @@
-##ANSIBLE DYNAMIC ASSIGNMENTS (INCLUDE) AND COMMUNITY ROLES<br>
+# ANSIBLE DYNAMIC ASSIGNMENTS (INCLUDE) AND COMMUNITY ROLES<br>
 
-- IMPORTANT NOTICE: Ansible is an actively developing software project, so you are encouraged to visit Ansible Documentation for the latest updates on modules and their usage.
-Last 2 projects have already equipped you with some knowledge and skills on Ansible, so you can perform configurations using playbooks, roles and imports. Now you will continue configuring your UAT servers learning and practicing new Ansible concepts and modules.
+**IMPORTANT NOTICE:** Ansible is an actively developing software project, so you are encouraged to visit Ansible Documentation for the latest updates on modules and their usage.<br>
+
+Now you will continue configuring your UAT servers learning and practicing new Ansible concepts and modules.
 In this project we will introduce dynamic assignments by using include module.<br>
 
 Now you may be wondering, what is the difference between static and dynamic assignments?
 Well, from Project Ansible Static-Assignments, you can already tell that static assignments use import Ansible module. <br>
-The module that enables dynamic assignments is include.<br>
+The module that enables dynamic assignments is **include**<br>
 Hence,<br>
 import = Static<br>
 include = Dynamic<br>
@@ -15,6 +16,7 @@ When the import module is used, all statements are pre-processed at the time pla
 This also means that, during actual execution, if any statement changes, such statements will not be considered. Hence, it is static.
 On the other hand, when include module is used, all statements are processed only during execution of the playbook.<br>
 Meaning, after the statements are parsed, any changes to the statements encountered during execution will be used.<br>
+
 Take note that in most cases it is recommended to use static assignments for playbooks, because it is more reliable. With dynamic ones, it is hard to debug playbook problems due to its dynamic nature. However, you can use dynamic assignments for environment specific variables as we will be introducing in this project.
 <br>
 
@@ -109,18 +111,15 @@ Update site.yml file to make use of the dynamic assignment. (At this point, we c
 site.yml should now look like this.<br>
 ```
 ---
-- hosts: all
-- name: Include dynamic variables 
-  tasks:
-  import_playbook: ../static-assignments/common.yml 
-  include: ../dynamic-assignments/env-vars.yml
+- name: import common file
+  import_playbook: ../static-assignments/common.yml
   tags:
     - always
 
-
-- hosts: webservers
-- name: Webserver assignment
-  import_playbook: ../static-assignments/webservers.yml
+- name: include env-vars file
+  import_playbook: ../dynamic-assignments/env-vars.yml
+  tags:
+    - always
 ```
 
 ## Community Roles<br>
@@ -146,6 +145,7 @@ and rename the folder to mysql <br>
 
 Read README.md file, and edit roles configuration to use correct credentials for MySQL required for the tooling website.
 Now it is time to upload the changes into your GitHub:
+
 ```
 git add .
 git commit -m "Commit new role files into GitHub"
@@ -180,12 +180,17 @@ Update both assignment and site.yml files respectively<br>
   roles:
     - { role: nginx, when: enable_nginx_lb and load_balancer_is_required }
     - { role: apache, when: enable_apache_lb and load_balancer_is_required }
+```
+
 site.yml file
+
+```
      - name: Loadbalancers assignment
        hosts: lb
      - import_playbook: ../static-assignments/loadbalancers.yml
        when: load_balancer_is_required
 ```
+
 Now you can make use of env-vars\uat.yml file to define which loadbalancer to use in UAT environment by setting respective environmental variable to true.
 You will activate load balancer, and enable nginx by setting these in the respective environment’s env-vars file.<br>
 
@@ -199,5 +204,13 @@ To test this, you can update inventory for each environment and run Ansible agai
 
 Congratulations!<br>
 You have learned and practiced how to use Ansible configuration management tool to prepare UAT environment for Tooling web solution.<br>
+
+Note: <br>
+Set to true in nginx/defaults/main.yml <br>
+
+```
+enable_nginx_lb: true
+load_balancer_is_required: true
+```
 
 

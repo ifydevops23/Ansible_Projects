@@ -270,7 +270,7 @@ You have learned and practiced how to use Ansible configuration management tool 
 
 - Servers Managed
   
-![Instances_in_UAT_pls_lb_IP_duplicate](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/ddd522bf-863d-40fa-b540-df039710376b)
+![Instances_in_UAT_pls_lb_IP_duplicate - Copy](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/9a5e0687-a6b6-4eb8-9d6f-c3292ff0064d)
 
 - DB config Success
 

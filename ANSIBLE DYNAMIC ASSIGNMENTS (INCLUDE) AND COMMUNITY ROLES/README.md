@@ -166,7 +166,7 @@ git switch roles-feature
 ![git-branch-roles-feature](https://github.com/ifydevops23/Ansible_Projects/assets/126971054/5193bd57-db8c-4d83-9218-ffb569df3336)
 
 Inside roles directory create your new MySQL role with <br>
-`ansible-galaxy install geerlingguy.mysql` <br>
+`ansible-galaxy install geerlingguy.mysql -p .` <br>
 and rename the folder to mysql <br>
 `mv geerlingguy.mysql/ mysql`<br>
 
